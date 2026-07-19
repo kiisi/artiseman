@@ -51,11 +51,6 @@ export function Header() {
             </nav>
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link href="/become-artisan">
-                <Button variant="ghost" size="sm">
-                  Become an Artisan
-                </Button>
-              </Link>
               <Link href="/login">
                 <Button variant="outline" size="sm">
                   Log In
@@ -113,11 +108,6 @@ export function Header() {
               ))}
             </nav>
             <div className="p-4 border-t border-border space-y-3">
-              <Link href="/become-artisan" onClick={() => setMobileOpen(false)}>
-                <Button variant="outline" fullWidth>
-                  Become an Artisan
-                </Button>
-              </Link>
               <div className="flex gap-3">
                 <Link href="/login" className="flex-1" onClick={() => setMobileOpen(false)}>
                   <Button variant="outline" fullWidth>

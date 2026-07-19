@@ -1,13 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Logo } from "@/app/components/ui/logo";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  XIcon,
-} from "lucide-react";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@hugeicons/core-free-icons";
+import { CallIcon, FacebookIcon, InstagramIcon, LinkedinIcon, Location01Icon, Mail01Icon, NewTwitterIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 const footerSections = [
   {
@@ -49,7 +44,7 @@ const footerSections = [
 ];
 const socialLinks = [
   { icon: FacebookIcon, href: "#", label: "Facebook" },
-  { icon: XIcon, href: "#", label: "Twitter" },
+  { icon: NewTwitterIcon, href: "#", label: "Twitter" },
   { icon: InstagramIcon, href: "#", label: "Instagram" },
   { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
 ];
@@ -73,18 +68,18 @@ export function Footer() {
                 href="mailto:hello@artiseman.com"
                 className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
               >
-                <Mail className="w-4 h-4" />
+                <HugeiconsIcon icon={Mail01Icon} className="w-4 h-4" />
                 hello@artiseman.com
               </a>
               <a
                 href="tel:+18001234567"
                 className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
               >
-                <Phone className="w-4 h-4" />
+                <HugeiconsIcon icon={CallIcon} className="w-4 h-4" />
                 +1 (800) 123-4567
               </a>
               <p className="flex items-center gap-2 text-neutral-400">
-                <MapPin className="w-4 h-4" />
+                <HugeiconsIcon icon={Location01Icon} className="w-4 h-4" />
                 New York, NY 10001
               </p>
             </div>
@@ -125,7 +120,7 @@ export function Footer() {
                 className="p-2 rounded-full text-neutral-500 hover:text-white hover:bg-neutral-800 transition-all duration-[var(--transition-base)]"
                 aria-label={social.label}
               >
-                <social.icon className="w-4 h-4" />
+                <HugeiconsIcon icon={social.icon} className="w-4 h-4" />
               </a>
             ))}
           </div>
