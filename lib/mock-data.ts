@@ -222,3 +222,144 @@ export const testimonials: Testimonial[] = [
             "Our restaurant couldn't afford downtime when the generator failed. We found a verified technician within minutes, and everything was back up and running quickly.",
     },
 ];
+
+export interface Category {
+    id: string;
+    name: string;
+    icon: string;
+    count: number;
+}
+
+export const categories: Category[] = [
+    {
+        id: "plumbing",
+        name: "Plumbing",
+        icon: "Wrench",
+        count: 248,
+    },
+    {
+        id: "electrical",
+        name: "Electrical",
+        icon: "Zap",
+        count: 193,
+    },
+    {
+        id: "carpentry",
+        name: "Carpentry",
+        icon: "Hammer",
+        count: 165,
+    },
+    {
+        id: "painting",
+        name: "Painting",
+        icon: "Paintbrush",
+        count: 124,
+    },
+    {
+        id: "cleaning",
+        name: "Cleaning",
+        icon: "Sparkles",
+        count: 287,
+    },
+    {
+        id: "ac-repair",
+        name: "AC Repair",
+        icon: "Thermometer",
+        count: 98,
+    },
+    {
+        id: "gardening",
+        name: "Gardening",
+        icon: "TreePine",
+        count: 76,
+    },
+    {
+        id: "home-maintenance",
+        name: "Home Maintenance",
+        icon: "Home",
+        count: 214,
+    },
+];
+
+// lib/mock-data.ts
+
+export interface FAQItem {
+    question: string;
+    answer: string;
+}
+
+export const faqItems: FAQItem[] = [
+    {
+        question: "How do I book an artisan?",
+        answer:
+            "Simply search for the service you need, choose a verified artisan based on their ratings and reviews, submit your request, and confirm your booking. The artisan will receive your request and respond promptly.",
+    },
+    {
+        question: "Are all artisans verified?",
+        answer:
+            "Yes. Every artisan undergoes an identity verification process before joining the platform. We also continuously monitor ratings, reviews, and completed jobs to maintain service quality.",
+    },
+    {
+        question: "How are service prices determined?",
+        answer:
+            "Prices are provided by individual artisans based on the scope of work. For many services, you'll receive estimates before confirming your booking, ensuring complete transparency with no hidden charges.",
+    },
+    {
+        question: "Can I choose a specific artisan?",
+        answer:
+            "Absolutely. You can browse artisan profiles, compare ratings, experience, pricing, and customer reviews before selecting the professional you'd like to hire.",
+    },
+    {
+        question: "What happens if I'm not satisfied with the service?",
+        answer:
+            "If you experience any issues, you can report the job through the platform. Our support team will review the case, mediate between both parties, and work toward a fair resolution.",
+    },
+    {
+        question: "Can I cancel or reschedule a booking?",
+        answer:
+            "Yes. You can cancel or reschedule a booking before the artisan begins the job. Cancellation policies may vary depending on how close the appointment is to the scheduled time.",
+    },
+    {
+        question: "How do artisans receive payments?",
+        answer:
+            "Payments are securely processed through the platform. Once a job is completed and confirmed by the customer, the artisan's earnings are credited to their wallet and can be withdrawn to their bank account.",
+    },
+    {
+        question: "How can I become an artisan on the platform?",
+        answer:
+            "Click on 'Become an Artisan', create an account, complete your profile, upload the required verification documents, and choose your service categories. Once approved, you'll start receiving job requests in your area.",
+    },
+];
+
+export interface PlatformStat {
+    value: string;
+    suffix?: string;
+    label: string;
+    description: string;
+}
+
+export const platformStats: PlatformStat[] = [
+    {
+        value: "10,000",
+        suffix: "+",
+        label: "Verified Artisans",
+        description: "Skilled professionals across multiple service categories.",
+    },
+    {
+        value: "50,000",
+        suffix: "+",
+        label: "Jobs Completed",
+        description: "Successfully completed home and business service requests.",
+    },
+    {
+        value: "4.9",
+        label: "Average Rating",
+        description: "Based on thousands of verified customer reviews.",
+    },
+    {
+        value: "25",
+        suffix: "+",
+        label: "Cities Covered",
+        description: "Expanding rapidly across major cities nationwide.",
+    },
+];
