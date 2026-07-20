@@ -22,19 +22,19 @@ import { Avatar } from "@/app/components/ui/avatar";
 import { currentUser } from "@/lib/dashboard-mock-data";
 
 const sidebarLinks = [
-  { label: "Overview", href: "/dashboard/customer", icon: LayoutDashboard },
-  { label: "Find Artisan", href: "/dashboard/customer/find-artisan", icon: Search },
-  { label: "Bookings", href: "/dashboard/customer/bookings", icon: Calendar },
-  { label: "Messages", href: "/dashboard/customer/messages", icon: MessageSquare, badge: 2 },
-  { label: "Payments", href: "/dashboard/customer/payments", icon: CreditCard },
-  { label: "Reviews", href: "/dashboard/customer/reviews", icon: Star },
-  { label: "Notifications", href: "/dashboard/customer/notifications", icon: Bell, badge: 3 },
-  { label: "Profile", href: "/dashboard/customer/profile", icon: User },
+  { label: "Overview", href: "/customer", icon: LayoutDashboard },
+  { label: "Find Artisan", href: "/customer/find-artisan", icon: Search },
+  { label: "Bookings", href: "/customer/bookings", icon: Calendar },
+  { label: "Messages", href: "/customer/messages", icon: MessageSquare, badge: 2 },
+  { label: "Payments", href: "/customer/payments", icon: CreditCard },
+  { label: "Reviews", href: "/customer/reviews", icon: Star },
+  { label: "Notifications", href: "/customer/notifications", icon: Bell, badge: 3 },
+  { label: "Profile", href: "/customer/profile", icon: User },
 ];
 
 const bottomLinks = [
   { label: "Help Center", href: "/help", icon: HelpCircle },
-  { label: "Settings", href: "/dashboard/customer/profile", icon: Settings },
+  { label: "Settings", href: "/customer/profile", icon: Settings },
 ];
 
 export function Sidebar() {
@@ -76,7 +76,7 @@ export function Sidebar() {
         {sidebarLinks.map((link) => {
           const isActive =
             pathname === link.href ||
-            (link.href !== "/dashboard/customer" && pathname?.startsWith(link.href));
+            (link.href !== "/customer" && pathname?.startsWith(link.href));
           const Icon = link.icon;
           return (
             <Link
@@ -86,19 +86,17 @@ export function Sidebar() {
                 flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-lg)]
                 text-sm font-medium transition-all duration-[var(--transition-base)]
                 group relative
-                ${
-                  isActive
-                    ? "bg-primary-50 text-primary"
-                    : "text-neutral-500 hover:text-foreground hover:bg-neutral-50"
+                ${isActive
+                  ? "bg-primary-50 text-primary"
+                  : "text-neutral-500 hover:text-foreground hover:bg-neutral-50"
                 }
                 ${collapsed ? "justify-center px-0" : ""}
               `}
               title={collapsed ? link.label : undefined}
             >
               <Icon
-                className={`w-[18px] h-[18px] shrink-0 ${
-                  isActive ? "text-primary" : "text-neutral-400 group-hover:text-neutral-600"
-                }`}
+                className={`w-[18px] h-[18px] shrink-0 ${isActive ? "text-primary" : "text-neutral-400 group-hover:text-neutral-600"
+                  }`}
               />
               {!collapsed && (
                 <>
