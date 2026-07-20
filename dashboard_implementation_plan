@@ -1,0 +1,70 @@
+# Phase 3: Customer Dashboard Completion
+
+This plan outlines the completion of Phase 3 for the Artiseman project, focusing entirely on the Customer Dashboard. While some core components (like the sidebar, dashboard-header, job-card, and stat-card) have already been implemented, we need to build the missing components and fully assemble the dashboard pages using the established mock data and design system.
+
+## User Review Required
+
+> [!WARNING]
+> **Extensive Scope**: This phase includes creating 11 unique pages and several complex components (like interactive maps placeholders, message interfaces, and tracking timelines). Please review the proposed list below. If you prefer to tackle these in sub-phases (e.g., Overview and Find Artisan first, then Messages and Tracking), let me know. Otherwise, I will proceed to build them all sequentially.
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Routing Strategy**: The original plan proposed `app/(dashboard)/customer`. I will implement the customer dashboard under this route path. Should I add a global redirect from `/dashboard` to `/dashboard/customer`?
+> 2. **Map View Placeholder**: Since we don't have a real maps API (like Google Maps or Mapbox) integrated yet, I will build a polished visual placeholder for the Map View and Live Tracking features. Is this acceptable?
+> 3. **Mobile Navigation**: The sidebar is hidden on mobile in the current component. We need a mobile bottom navigation or a hamburger menu. I will integrate a mobile drawer into the `dashboard-header.tsx` — does that work for you?
+
+## Proposed Changes
+
+---
+
+### Dashboard Components
+
+Completion of missing UI components for the dashboard pages.
+
+#### [NEW] [message-bubble.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/message-bubble.tsx)
+#### [NEW] [payment-table.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/payment-table.tsx)
+#### [NEW] [notification-item.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/notification-item.tsx)
+#### [NEW] [filter-panel.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/filter-panel.tsx)
+#### [NEW] [map-view.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/map-view.tsx)
+#### [NEW] [calendar-widget.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/calendar-widget.tsx)
+#### [NEW] [timeline.tsx](file:///C:/Users/KIISI/artiseman/app/components/dashboard/timeline.tsx)
+
+---
+
+### Dashboard Layout & Navigation
+
+Setting up the shared shell for the customer dashboard.
+
+#### [NEW] [layout.tsx](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/layout.tsx)
+Creates the dashboard shell combining the Sidebar and DashboardHeader.
+
+---
+
+### Dashboard Pages
+
+Implementation of all 11 customer dashboard views using the established design system, brand colors, and responsive layouts.
+
+#### [NEW] [Overview](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/page.tsx)
+#### [NEW] [Find Artisan](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/find-artisan/page.tsx)
+#### [NEW] [Artisan Profile](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/artisan/[id]/page.tsx)
+#### [NEW] [Create Request](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/request/page.tsx)
+#### [NEW] [Live Tracking](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/tracking/[id]/page.tsx)
+#### [NEW] [Messages](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/messages/page.tsx)
+#### [NEW] [Bookings](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/bookings/page.tsx)
+#### [NEW] [Payments](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/payments/page.tsx)
+#### [NEW] [Reviews](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/reviews/page.tsx)
+#### [NEW] [Notifications](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/notifications/page.tsx)
+#### [NEW] [Profile Settings](file:///C:/Users/KIISI/artiseman/app/(dashboard)/customer/profile/page.tsx)
+
+## Verification Plan
+
+### Automated Tests
+- `npm run build` to verify Next.js route compilation.
+- `npx tsc --noEmit` to ensure no TypeScript type errors in the new pages and components.
+
+### Manual Verification
+- Visual inspection of all 11 pages in the development server (`npm run dev`).
+- Ensure all pages adhere to the design system (Premium, clean, Stripe/Airbnb-like).
+- Verify responsive behavior on mobile (375px viewport).
+- Test mock data rendering across different pages.
