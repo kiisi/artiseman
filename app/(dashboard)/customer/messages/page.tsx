@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, Send, Paperclip, MoreVertical, Phone, Video, Info } from "lucide-react";
+import { Search, Send, Paperclip, MoreVertical, Phone, Video, Info, MessageSquare } from "lucide-react";
 import { Avatar } from "@/app/components/ui/avatar";
 import { MessageBubble } from "@/app/components/dashboard/message-bubble";
 import { conversations } from "@/lib/dashboard-mock-data";
@@ -25,17 +25,16 @@ export default function MessagesPage() {
             />
           </div>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           {conversations.map((conv) => (
             <button
               key={conv.id}
               onClick={() => setActiveConvId(conv.id)}
-              className={`w-full flex items-start gap-3 p-4 text-left transition-colors border-l-2 ${
-                activeConvId === conv.id 
-                  ? "bg-primary-50/50 border-primary" 
+              className={`w-full flex items-start gap-3 p-4 text-left transition-colors border-l-2 ${activeConvId === conv.id
+                  ? "bg-primary-50/50 border-primary"
                   : "border-transparent hover:bg-neutral-50"
-              }`}
+                }`}
             >
               <Avatar name={conv.sender.name} size="md" online={conv.sender.online} />
               <div className="flex-1 min-w-0">
@@ -73,7 +72,7 @@ export default function MessagesPage() {
                 <p className="text-xs text-neutral-500">{activeConv.sender.online ? "Online" : "Offline"}</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
               <button className="p-2 text-neutral-400 hover:text-primary hover:bg-primary-50 rounded-lg transition-colors">
                 <Phone className="w-5 h-5" />
@@ -95,15 +94,15 @@ export default function MessagesPage() {
                 Today
               </span>
             </div>
-            
+
             <div className="mt-auto">
               {activeConv.messages.map((msg, index) => {
-                const showAvatar = index === activeConv.messages.length - 1 || 
-                                 activeConv.messages[index + 1].isOwn !== msg.isOwn;
+                const showAvatar = index === activeConv.messages.length - 1 ||
+                  activeConv.messages[index + 1].isOwn !== msg.isOwn;
                 return (
-                  <MessageBubble 
-                    key={msg.id} 
-                    message={msg} 
+                  <MessageBubble
+                    key={msg.id}
+                    message={msg}
                     showAvatar={showAvatar}
                     avatarName={activeConv.sender.name}
                   />
@@ -118,13 +117,13 @@ export default function MessagesPage() {
               <button className="p-2.5 text-neutral-400 hover:text-primary transition-colors shrink-0">
                 <Paperclip className="w-5 h-5" />
               </button>
-              
+
               <textarea
                 placeholder="Type your message..."
                 className="flex-1 bg-transparent border-none focus:ring-0 resize-none py-2.5 px-2 text-sm max-h-32 min-h-[44px]"
                 rows={1}
               />
-              
+
               <button className="p-2.5 bg-primary text-white rounded-[var(--radius-md)] hover:bg-primary-600 transition-colors shrink-0 shadow-sm">
                 <Send className="w-4 h-4" />
               </button>

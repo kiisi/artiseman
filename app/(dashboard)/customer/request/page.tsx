@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { Button } from "@/app/components/ui/button";
-import { Search, MapPin, Calendar, Clock, Image as ImageIcon, Camera } from "lucide-react";
+import { Search, MapPin, Calendar, Clock, Image as ImageIcon, Camera, Info } from "lucide-react";
 
 export default function CreateRequestPage() {
   const [step, setStep] = useState(1);
-  
+
   return (
     <div className="max-w-3xl mx-auto space-y-8 animate-fade-in pb-12">
       <div>
@@ -18,14 +18,13 @@ export default function CreateRequestPage() {
       <div className="flex items-center justify-between relative mb-8">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-neutral-100 rounded-full z-0"></div>
         <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary rounded-full z-0 transition-all duration-300" style={{ width: `${((step - 1) / 2) * 100}%` }}></div>
-        
+
         {['Service Details', 'Schedule & Location', 'Review'].map((label, i) => (
           <div key={label} className="relative z-10 flex flex-col items-center gap-2">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-colors ${
-              step > i + 1 ? 'bg-primary border-primary text-white' : 
-              step === i + 1 ? 'bg-white border-primary text-primary' : 
-              'bg-white border-neutral-200 text-neutral-400'
-            }`}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-colors ${step > i + 1 ? 'bg-primary border-primary text-white' :
+                step === i + 1 ? 'bg-white border-primary text-primary' :
+                  'bg-white border-neutral-200 text-neutral-400'
+              }`}>
               {step > i + 1 ? '✓' : i + 1}
             </div>
             <span className={`text-xs font-medium ${step >= i + 1 ? 'text-foreground' : 'text-neutral-400'}`}>{label}</span>
@@ -37,7 +36,7 @@ export default function CreateRequestPage() {
         {step === 1 && (
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-lg font-bold text-foreground mb-4">Service Details</h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">What do you need help with?</label>
@@ -91,15 +90,14 @@ export default function CreateRequestPage() {
         {step === 2 && (
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-lg font-bold text-foreground mb-4">Schedule & Location</h2>
-            
+
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-3">When do you need this done?</label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   {['Today', 'Tomorrow', 'This Week', 'Specific Date'].map((time, i) => (
-                    <button key={time} className={`px-4 py-3 rounded-[var(--radius-md)] border text-sm font-medium transition-colors ${
-                      i === 0 ? 'bg-primary-50 border-primary text-primary' : 'bg-white border-border text-neutral-600 hover:border-primary/50'
-                    }`}>
+                    <button key={time} className={`px-4 py-3 rounded-[var(--radius-md)] border text-sm font-medium transition-colors ${i === 0 ? 'bg-primary-50 border-primary text-primary' : 'bg-white border-border text-neutral-600 hover:border-primary/50'
+                      }`}>
                       {time}
                     </button>
                   ))}
@@ -143,16 +141,16 @@ export default function CreateRequestPage() {
                   />
                 </div>
                 <div className="h-[150px] bg-neutral-100 rounded-[var(--radius-md)] border border-border flex items-center justify-center relative overflow-hidden">
-                   <div 
-                      className="absolute inset-0 opacity-20"
-                      style={{
-                        backgroundImage: `linear-gradient(to right, var(--color-primary) 1px, transparent 1px), linear-gradient(to bottom, var(--color-primary) 1px, transparent 1px)`,
-                        backgroundSize: '20px 20px'
-                      }}
-                    />
-                    <div className="bg-white p-2 rounded-full shadow-md z-10 text-danger border border-danger/20">
-                      <MapPin className="w-5 h-5 fill-current" />
-                    </div>
+                  <div
+                    className="absolute inset-0 opacity-20"
+                    style={{
+                      backgroundImage: `linear-gradient(to right, var(--color-primary) 1px, transparent 1px), linear-gradient(to bottom, var(--color-primary) 1px, transparent 1px)`,
+                      backgroundSize: '20px 20px'
+                    }}
+                  />
+                  <div className="bg-white p-2 rounded-full shadow-md z-10 text-danger border border-danger/20">
+                    <MapPin className="w-5 h-5 fill-current" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -167,14 +165,14 @@ export default function CreateRequestPage() {
         {step === 3 && (
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-lg font-bold text-foreground mb-4">Review Request</h2>
-            
+
             <div className="bg-neutral-50 rounded-[var(--radius-lg)] p-5 border border-border space-y-4">
               <div>
                 <p className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1">Service Required</p>
                 <p className="font-semibold text-foreground">Kitchen Sink Repair (Plumbing)</p>
                 <p className="text-sm text-neutral-600 mt-1">The pipe under the sink is leaking heavily and needs replacement.</p>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
                 <div>
                   <p className="text-xs font-medium text-neutral-500 uppercase tracking-wider mb-1">Schedule</p>

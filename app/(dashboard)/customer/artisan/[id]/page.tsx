@@ -15,7 +15,7 @@ export default function ArtisanProfilePage({ params }: { params: { id: string } 
     <div className="max-w-5xl mx-auto space-y-8 animate-fade-in pb-12">
       {/* Top Nav */}
       <div>
-        <Link 
+        <Link
           href="/dashboard/customer/find-artisan"
           className="inline-flex items-center gap-2 text-sm font-medium text-neutral-500 hover:text-foreground transition-colors mb-6"
         >
@@ -27,10 +27,10 @@ export default function ArtisanProfilePage({ params }: { params: { id: string } 
       <div className="bg-white rounded-[var(--radius-xl)] border border-border p-6 md:p-8 shadow-sm relative overflow-hidden">
         {/* Decorative Background */}
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-r from-primary/10 to-tertiary/10 pointer-events-none" />
-        
+
         <div className="relative flex flex-col md:flex-row gap-6 items-start md:items-center">
           <Avatar name={artisan.name} size="xl" className="border-4 border-white shadow-md w-24 h-24 text-2xl" />
-          
+
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <h1 className="text-2xl font-bold text-foreground">{artisan.name}</h1>
@@ -39,7 +39,7 @@ export default function ArtisanProfilePage({ params }: { params: { id: string } 
               )}
             </div>
             <p className="text-lg text-neutral-600 font-medium mb-3">{artisan.specialty}</p>
-            
+
             <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-sm text-neutral-500">
               <span className="flex items-center gap-1 text-foreground font-semibold">
                 <Star className="w-4 h-4 fill-warning text-warning" />
@@ -53,7 +53,7 @@ export default function ArtisanProfilePage({ params }: { params: { id: string } 
               </span>
             </div>
           </div>
-          
+
           <div className="flex flex-col gap-3 w-full md:w-auto shrink-0 mt-4 md:mt-0">
             <div className="text-left md:text-right mb-2">
               <p className="text-2xl font-bold text-foreground">₦{artisan.hourlyRate.toLocaleString()}<span className="text-sm font-medium text-neutral-400">/hr</span></p>
@@ -63,7 +63,7 @@ export default function ArtisanProfilePage({ params }: { params: { id: string } 
               <Button variant="outline" className="flex-1 md:flex-none">
                 <MessageSquare className="w-4 h-4 mr-2" /> Message
               </Button>
-              <Button asChild className="flex-1 md:flex-none">
+              <Button className="flex-1 md:flex-none">
                 <Link href={`/dashboard/customer/request?artisan=${artisan.id}`}>
                   Book Now
                 </Link>
@@ -112,7 +112,7 @@ export default function ArtisanProfilePage({ params }: { params: { id: string } 
               <h2 className="text-lg font-bold text-foreground">Customer Reviews</h2>
               <button className="text-sm font-medium text-primary hover:underline">View all {artisan.reviewCount}</button>
             </div>
-            
+
             <div className="space-y-6">
               {artisan.reviews.map(review => (
                 <div key={review.id} className="border-b border-border pb-6 last:border-0 last:pb-0">
