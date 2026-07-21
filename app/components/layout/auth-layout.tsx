@@ -3,20 +3,37 @@ import Link from "next/link";
 import { Logo } from "@/app/components/ui/logo";
 import { CheckCircle } from "lucide-react";
 
-export default function AuthLayout({
-    children,
-}: {
+interface AuthLayoutProps {
     children: React.ReactNode;
-}) {
+    title: string;
+    features: string[];
+    testimonial: {
+        quote: string;
+        author: string;
+        role: string;
+        avatarUrl: string;
+    };
+    linkHref?: string;
+}
+
+export function AuthLayout({
+    children,
+    title,
+    features,
+    testimonial,
+    linkHref = "/",
+}: AuthLayoutProps) {
     return (
         <div className="min-h-screen flex w-full bg-white">
             {/* Left side: Form content */}
             <div className="w-full lg:w-1/2 flex flex-col min-h-screen">
                 <div className="p-8 flex items-center justify-between">
-                    <Logo />
+                    <Link href={linkHref}>
+                        <Logo />
+                    </Link>
                 </div>
 
-                <div className="flex-1 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-24">
+                <div className="flex-1 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-24 py-8">
                     <div className="w-full max-w-md mx-auto">
                         {children}
                     </div>
@@ -48,15 +65,10 @@ export default function AuthLayout({
                 <div className="relative z-10 p-16 xl:p-24 flex flex-col h-full">
                     <div className="mt-auto mb-16 max-w-lg">
                         <h2 className="text-3xl xl:text-4xl font-bold text-white mb-6 leading-tight">
-                            The premium marketplace for world-class artisans.
+                            {title}
                         </h2>
                         <div className="space-y-4">
-                            {[
-                                "Verified and vetted professionals",
-                                "Secure, escrow-based payments",
-                                "Transparent pricing and reviews",
-                                "24/7 customer support"
-                            ].map((feature, idx) => (
+                            {features.map((feature, idx) => (
                                 <div key={idx} className="flex items-center gap-3 text-primary-50">
                                     <CheckCircle className="w-5 h-5 text-tertiary" />
                                     <span className="text-lg text-white/90">{feature}</span>
@@ -68,15 +80,15 @@ export default function AuthLayout({
                     {/* Testimonial */}
                     <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-[var(--radius-xl)] p-6 max-w-lg">
                         <p className="text-white/90 italic mb-4">
-                            "Artiseman completely changed how I find reliable help for my home. The quality of artisans here is unmatched."
+                            "{testimonial.quote}"
                         </p>
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-neutral-200 border-2 border-white overflow-hidden">
-                                <img src="https://i.pravatar.cc/150?img=44" alt="Sarah Jenkins" className="w-full h-full object-cover" />
+                            <div className="w-10 h-10 rounded-full bg-neutral-200 border-2 border-white overflow-hidden flex-shrink-0">
+                                <img src={testimonial.avatarUrl} alt={testimonial.author} className="w-full h-full object-cover" />
                             </div>
                             <div>
-                                <div className="text-white font-medium text-sm">Sarah Jenkins</div>
-                                <div className="text-white/70 text-xs">Homeowner in Seattle</div>
+                                <div className="text-white font-medium text-sm">{testimonial.author}</div>
+                                <div className="text-white/70 text-xs">{testimonial.role}</div>
                             </div>
                         </div>
                     </div>
