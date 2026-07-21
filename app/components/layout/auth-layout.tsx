@@ -28,9 +28,7 @@ export function AuthLayout({
             {/* Left side: Form content */}
             <div className="w-full lg:w-1/2 flex flex-col min-h-screen">
                 <div className="p-8 flex items-center justify-between">
-                    <Link href={linkHref}>
-                        <Logo />
-                    </Link>
+                    <Logo />
                 </div>
 
                 <div className="flex-1 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-24 py-8">
