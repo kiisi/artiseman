@@ -7,7 +7,7 @@ import { notifications } from "@/lib/dashboard-mock-data";
 
 export default function NotificationsPage() {
   const [filter, setFilter] = useState<"all" | "unread">("all");
-  
+
   const filteredNotifications = notifications.filter(n => {
     if (filter === "unread") return !n.read;
     return true;
@@ -22,34 +22,31 @@ export default function NotificationsPage() {
           <h1 className="text-2xl font-bold text-foreground">Notifications</h1>
           <p className="text-sm text-neutral-500 mt-1">Stay updated on your bookings, messages, and account.</p>
         </div>
-        
+
         <div className="flex items-center gap-3">
-          <div className="flex items-center bg-white border border-border rounded-lg p-1 shadow-sm">
-            <button 
+          <div className="flex items-center bg-white border border-border rounded-lg p-1">
+            <button
               onClick={() => setFilter("all")}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                filter === "all" ? "bg-primary-50 text-primary" : "text-neutral-500 hover:text-foreground"
-              }`}
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${filter === "all" ? "bg-primary-50 text-primary" : "text-neutral-500 hover:text-foreground"
+                }`}
             >
               All
             </button>
-            <button 
+            <button
               onClick={() => setFilter("unread")}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors flex items-center gap-1.5 ${
-                filter === "unread" ? "bg-primary-50 text-primary" : "text-neutral-500 hover:text-foreground"
-              }`}
+              className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors flex items-center gap-1.5 ${filter === "unread" ? "bg-primary-50 text-primary" : "text-neutral-500 hover:text-foreground"
+                }`}
             >
               Unread
               {unreadCount > 0 && (
-                <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center ${
-                  filter === "unread" ? "bg-primary text-white" : "bg-neutral-200 text-neutral-600"
-                }`}>
+                <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center ${filter === "unread" ? "bg-primary text-white" : "bg-neutral-200 text-neutral-600"
+                  }`}>
                   {unreadCount}
                 </span>
               )}
             </button>
           </div>
-          
+
           <button className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary transition-colors">
             <CheckCheck className="w-4 h-4" /> Mark all as read
           </button>

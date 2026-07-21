@@ -5,9 +5,17 @@ import { User, Lock, MapPin, Bell, Shield, Camera } from "lucide-react";
 import { Avatar } from "@/app/components/ui/avatar";
 import { Button } from "@/app/components/ui/button";
 import { currentUser } from "@/lib/dashboard-mock-data";
+import Switch from "@/app/components/ui/switch";
 
 export default function ProfileSettingsPage() {
   const [activeTab, setActiveTab] = useState<"personal" | "security" | "addresses" | "notifications">("personal");
+
+  const [notificationPref, setNotificationPref] = useState([
+    { title: "Booking Updates", desc: "Get notified when artisan accepts or changes a booking.", checked: false },
+    { title: "Messages", desc: "Receive notifications for new chat messages.", checked: false },
+    { title: "Promotions & Offers", desc: "Hear about discounts and special deals.", checked: false },
+    { title: "Account Activity", desc: "Security alerts and login notifications.", checked: false },
+  ])
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 animate-fade-in pb-12">
@@ -22,33 +30,29 @@ export default function ProfileSettingsPage() {
           <nav className="flex flex-col gap-1">
             <button
               onClick={() => setActiveTab("personal")}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${
-                activeTab === "personal" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
-              }`}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${activeTab === "personal" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
+                }`}
             >
               <User className="w-4 h-4" /> Personal Info
             </button>
             <button
               onClick={() => setActiveTab("security")}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${
-                activeTab === "security" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
-              }`}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${activeTab === "security" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
+                }`}
             >
               <Lock className="w-4 h-4" /> Security
             </button>
             <button
               onClick={() => setActiveTab("addresses")}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${
-                activeTab === "addresses" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
-              }`}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${activeTab === "addresses" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
+                }`}
             >
               <MapPin className="w-4 h-4" /> Saved Addresses
             </button>
             <button
               onClick={() => setActiveTab("notifications")}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${
-                activeTab === "notifications" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
-              }`}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left ${activeTab === "notifications" ? "bg-primary-50 text-primary" : "text-neutral-600 hover:bg-neutral-50"
+                }`}
             >
               <Bell className="w-4 h-4" /> Notifications
             </button>
@@ -57,11 +61,11 @@ export default function ProfileSettingsPage() {
 
         {/* Content Area */}
         <div className="flex-1 bg-white rounded-[var(--radius-xl)] border border-border p-6 md:p-8 shadow-sm">
-          
+
           {activeTab === "personal" && (
             <div className="space-y-6 animate-fade-in">
               <h2 className="text-lg font-bold text-foreground border-b border-border pb-4 mb-6">Personal Information</h2>
-              
+
               <div className="flex items-center gap-6 mb-8">
                 <div className="relative">
                   <Avatar name={currentUser.name} size="xl" className="w-24 h-24 text-2xl" />
@@ -105,7 +109,7 @@ export default function ProfileSettingsPage() {
           {activeTab === "security" && (
             <div className="space-y-6 animate-fade-in">
               <h2 className="text-lg font-bold text-foreground border-b border-border pb-4 mb-6">Security Settings</h2>
-              
+
               <div className="space-y-4">
                 <h3 className="font-semibold text-sm text-foreground">Change Password</h3>
                 <div>
@@ -121,7 +125,7 @@ export default function ProfileSettingsPage() {
                   <input type="password" placeholder="••••••••" className="w-full h-11 px-3 text-sm bg-white border border-border rounded-[var(--radius-md)] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" />
                 </div>
               </div>
-              
+
               <hr className="border-border my-6" />
 
               <div className="flex items-center justify-between">
@@ -186,23 +190,32 @@ export default function ProfileSettingsPage() {
           {activeTab === "notifications" && (
             <div className="space-y-6 animate-fade-in">
               <h2 className="text-lg font-bold text-foreground border-b border-border pb-4 mb-6">Notification Preferences</h2>
-              
+
               <div className="space-y-6">
-                {[
-                  { title: "Booking Updates", desc: "Get notified when artisan accepts or changes a booking." },
-                  { title: "Messages", desc: "Receive notifications for new chat messages." },
-                  { title: "Promotions & Offers", desc: "Hear about discounts and special deals." },
-                  { title: "Account Activity", desc: "Security alerts and login notifications." },
-                ].map((item, i) => (
+                {notificationPref.map((item, i) => (
                   <div key={i} className="flex items-start justify-between">
                     <div>
-                      <h3 className="font-semibold text-sm text-foreground">{item.title}</h3>
-                      <p className="text-xs text-neutral-500 mt-0.5">{item.desc}</p>
+                      <h3 className="font-semibold text-[16px] text-foreground">{item.title}</h3>
+                      <p className="text-[14px] text-neutral-500 mt-0.5">{item.desc}</p>
                     </div>
-                    <label className="relative inline-block w-10 align-middle select-none transition duration-200 ease-in mt-1">
-                      <input type="checkbox" defaultChecked={i !== 2} className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-neutral-300 appearance-none cursor-pointer transition-transform duration-200 ease-in-out checked:translate-x-5 checked:border-primary z-10" />
-                      <div className="toggle-label block overflow-hidden h-5 rounded-full bg-neutral-300 cursor-pointer transition-colors duration-200 ease-in-out peer-checked:bg-primary"></div>
-                    </label>
+                    <div>
+                      <Switch
+                        checked={item.checked}
+                        onCheckedChange={() => {
+                          setNotificationPref((prev) => {
+                            return prev.map(data => {
+                              if (data.title === item.title) {
+                                return {
+                                  ...data,
+                                  checked: !data.checked
+                                }
+                              }
+                              return data
+                            })
+                          })
+                        }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -210,8 +223,9 @@ export default function ProfileSettingsPage() {
           )}
         </div>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .toggle-checkbox:checked { right: 0; border-color: var(--color-primary); }
         .toggle-checkbox:checked + .toggle-label { background-color: var(--color-primary); }
         .toggle-checkbox { right: 20px; z-index: 1; }
