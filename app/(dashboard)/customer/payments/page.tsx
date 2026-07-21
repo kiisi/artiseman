@@ -24,7 +24,7 @@ export default function PaymentsPage() {
         <WalletCard />
 
         {/* Saved Cards */}
-        <div className="bg-white rounded-[32px] border border-border p-6 -md:col-span-2">
+        <div className="bg-white rounded-[24px] lg:rounded-[32px] border border-border p-6 -md:col-span-2">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-bold text-foreground">Payment Methods</h3>
             <button className="text-sm font-medium text-primary hover:text-primary-600 transition-colors">Add New</button>
@@ -74,7 +74,7 @@ export default function PaymentsPage() {
 
 function WalletCard() {
   return (
-    <div className="relative overflow-hidden rounded-[32px] p-6 text-white shadow-xl lg:shadow-none">
+    <div className="relative overflow-hidden rounded-[24px] lg:rounded-[32px] p-6 text-white shadow-xl lg:shadow-none">
       {/* Background */}
       <div
         className="absolute inset-0"
@@ -96,20 +96,20 @@ function WalletCard() {
 
       {/* Decorative Wallet */}
       <Wallet
-        size={180}
+        size={160}
         strokeWidth={1}
-        className="absolute bottom-8 right-10 text-white/8"
+        className="absolute bottom-4 right-4 text-white/8"
       />
 
       <div className="relative z-10 flex flex-col gap-8">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md">
-              <Wallet size={28} />
-            </div>
+            {/* <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md">
+              <Wallet size={24} />
+            </div> */}
 
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-lg lg:text-2xl font-semibold tracking-tight">
               Wallet Balance
             </h2>
           </div>
@@ -121,9 +121,9 @@ function WalletCard() {
 
         {/* Balance */}
         <div>
-          <p className="text-lg text-white/70">Available Balance</p>
+          <p className="text-md lg:text-lg text-white/70">Available Balance</p>
 
-          <h1 className="mt-2 text-2xl font-bold tracking-tight md:text-4xl">
+          <h1 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight">
             ₦256,780.50
           </h1>
         </div>
@@ -134,7 +134,7 @@ function WalletCard() {
             <TrendingUp />
           </div>
 
-          <p className="text-md">
+          <p className="text-sm lg:text-md">
             <span className="font-semibold text-[#7FFFD4]">+12.4%</span>
             <span className="ml-1 text-white/80">from last month</span>
           </p>
