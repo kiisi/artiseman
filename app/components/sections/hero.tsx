@@ -48,7 +48,7 @@ export function Hero() {
 
           {/* Search Bar */}
           <div className="animate-fade-in-up stagger-3">
-            <div className="flex flex-col sm:flex-row bg-white rounded-[var(--radius-xl)] shadow-[var(--shadow-xl)] border border-border/50 p-2 gap-2 max-w-xl">
+            <div className="flex flex-col sm:flex-row bg-white rounded-[var(--radius-xl)] border border-border/50 p-2 gap-2 max-w-xl">
               {/* Service Search */}
               <div className="flex items-center gap-3 flex-1 px-4 py-2">
                 <Search className="w-5 h-5 text-neutral-400 shrink-0" />
