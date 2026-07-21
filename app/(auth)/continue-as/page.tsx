@@ -1,11 +1,17 @@
 "use client"
 import { AuthMode, AuthSelection } from "@/app/components/auth/auth-selection";
-import { useSearchParams } from "next/navigation";
 
-export default function Page() {
+interface ContinueAsPageProps {
+    searchParams: Promise<{
+        mode?: "login" | "signup";
+    }>;
+}
 
-    const searchParams = useSearchParams();
-    let mode = searchParams.get("mode");
+export default async function Page({
+    searchParams,
+}: ContinueAsPageProps) {
+
+    let { mode = "login" } = await searchParams;
 
     if (mode !== "login" && mode !== "signup") {
         mode = "login";
