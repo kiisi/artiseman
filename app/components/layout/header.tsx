@@ -51,12 +51,12 @@ export function Header() {
             </nav>
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link href="/login">
+              <Link href="/continue-as?mode=login">
                 <Button variant="outline" size="sm">
                   Log In
                 </Button>
               </Link>
-              <Link href="/register">
+              <Link href="/continue-as?mode=signup">
                 <Button variant="primary" size="sm" rightIcon={<ArrowRight className="w-4 h-4" />}>
                   Sign Up
                 </Button>
@@ -109,12 +109,12 @@ export function Header() {
             </nav>
             <div className="p-4 border-t border-border space-y-3">
               <div className="flex gap-3">
-                <Link href="/login" className="flex-1" onClick={() => setMobileOpen(false)}>
+                <Link href="/continue-as?mode=login" className="flex-1" onClick={() => setMobileOpen(false)}>
                   <Button variant="outline" fullWidth>
                     Log In
                   </Button>
                 </Link>
-                <Link href="/register" className="flex-1" onClick={() => setMobileOpen(false)}>
+                <Link href="/continue-as?mode=signup" className="flex-1" onClick={() => setMobileOpen(false)}>
                   <Button variant="primary" fullWidth>
                     Sign Up
                   </Button>
