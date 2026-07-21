@@ -16,7 +16,7 @@ export default function FindArtisanPage() {
         </div>
 
         {/* Toggle View (Map vs List) */}
-        <div className="flex items-center bg-white border border-border rounded-lg p-1 shadow-sm">
+        <div className="flex items-center bg-white border border-border rounded-lg p-1">
           <button className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium bg-primary-50 text-primary transition-colors">
             <Search className="w-4 h-4" />
             List

@@ -41,7 +41,7 @@ export function DashboardHeader() {
   return (
     <>
       <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-border">
-        <div className="flex items-center justify-between h-16 px-4 lg:px-8">
+        <div className="flex items-center justify-between h-[62.5px] px-4 lg:px-8">
           {/* Mobile Menu Trigger + Logo (mobile only) */}
           <div className="flex items-center gap-3 lg:hidden">
             <button
@@ -148,10 +148,9 @@ export function DashboardHeader() {
                     className={`
                       flex items-center gap-3 px-3 py-3 rounded-[var(--radius-lg)]
                       text-[15px] font-medium transition-colors
-                      ${
-                        isActive
-                          ? "bg-primary-50 text-primary"
-                          : "text-neutral-600 hover:bg-neutral-50"
+                      ${isActive
+                        ? "bg-primary-50 text-primary"
+                        : "text-neutral-600 hover:bg-neutral-50"
                       }
                     `}
                   >

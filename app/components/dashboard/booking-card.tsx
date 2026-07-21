@@ -24,7 +24,7 @@ export function BookingCard({ booking }: BookingCardProps) {
   const status = statusConfig[booking.status];
 
   return (
-    <div className="bg-white rounded-[var(--radius-xl)] border border-border p-5 hover:shadow-[var(--shadow-md)] transition-all duration-[var(--transition-base)]">
+    <div className="bg-white rounded-[var(--radius-xl)] border border-border p-5 transition-all duration-[var(--transition-base)]">
       {/* Top Row */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1 min-w-0">
