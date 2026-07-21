@@ -59,10 +59,9 @@ export default function CustomerDashboardOverview() {
       </div>
 
       {/* Two Column Layout for the rest */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        {/* Main Content Area (Left/Center) */}
-        <div className="xl:col-span-2 space-y-8">
-          {/* Recent Jobs */}
+      <div className="grid grid-cols-1 gap-8">
+        {/* Recent Jobs */}
+        <div className="space-y-8">
           <section>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-foreground">Recent Activity</h2>
@@ -79,32 +78,9 @@ export default function CustomerDashboardOverview() {
               ))}
             </div>
           </section>
-
-          {/* Recommended Artisans */}
-          <section>
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-foreground">Recommended Artisans</h2>
-              <Link
-                href="/dashboard/customer/find-artisan"
-                className="text-sm font-medium text-primary hover:text-primary-600 transition-colors flex items-center gap-1"
-              >
-                Explore more <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {artisanProfiles.slice(0, 2).map((artisan) => (
-                <ArtisanCardDashboard
-                  key={artisan.id}
-                  artisan={artisan}
-                />
-              ))}
-            </div>
-          </section>
         </div>
-
-        {/* Sidebar Area (Right) */}
+        {/* Upcoming Bookings */}
         <div className="space-y-8">
-          {/* Upcoming Bookings */}
           <section>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-foreground">Upcoming</h2>
@@ -130,6 +106,28 @@ export default function CustomerDashboardOverview() {
                 </Link>
               </div>
             )}
+          </section>
+        </div>
+        {/* Recommended Artisans */}
+        <div>
+          <section>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold text-foreground">Recommended Artisans</h2>
+              <Link
+                href="/dashboard/customer/find-artisan"
+                className="text-sm font-medium text-primary hover:text-primary-600 transition-colors flex items-center gap-1"
+              >
+                Explore more <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {artisanProfiles.slice(0, 2).map((artisan) => (
+                <ArtisanCardDashboard
+                  key={artisan.id}
+                  artisan={artisan}
+                />
+              ))}
+            </div>
           </section>
         </div>
       </div>

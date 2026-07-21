@@ -25,8 +25,7 @@ export function JobCard({ job, compact = false }: JobCardProps) {
       href={`/dashboard/customer/tracking/${job.id}`}
       className={`
         block bg-white rounded-[var(--radius-xl)] border border-border
-        hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5
-        transition-all duration-[var(--transition-base)]
+        hover:shadow-[var(--shadow-md)] transition-all duration-[var(--transition-base)]
         group
         ${compact ? "p-4" : "p-5"}
       `}

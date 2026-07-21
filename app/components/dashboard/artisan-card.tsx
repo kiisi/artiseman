@@ -31,7 +31,7 @@ export function ArtisanCardDashboard({
     return (
       <Link
         href={`/dashboard/customer/artisan/${artisan.id}`}
-        className="flex items-center gap-4 bg-white rounded-[var(--radius-xl)] border border-border p-4 hover:shadow-[var(--shadow-md)] hover:-translate-y-0.5 transition-all duration-[var(--transition-base)] group"
+        className="flex items-center gap-4 bg-white rounded-[var(--radius-xl)] border border-border p-4 transition-all duration-[var(--transition-base)] group"
       >
         <Avatar name={artisan.name} size="lg" online={artisan.available} />
 
@@ -73,7 +73,7 @@ export function ArtisanCardDashboard({
   return (
     <Link
       href={`/dashboard/customer/artisan/${artisan.id}`}
-      className="block bg-white rounded-[var(--radius-xl)] border border-border hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-[var(--transition-base)] group overflow-hidden"
+      className="block bg-white rounded-[var(--radius-xl)] border border-border transition-all duration-[var(--transition-base)] group overflow-hidden"
     >
       {/* Top gradient accent */}
       <div className="h-1 gradient-primary" />

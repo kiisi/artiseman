@@ -31,9 +31,7 @@ export function StatCard({
     <div
       className={`
         bg-white rounded-[var(--radius-xl)] border border-border p-5
-        hover:shadow-[var(--shadow-md)] transition-all duration-[var(--transition-base)]
-        hover:-translate-y-0.5
-        ${className}
+        transition-all duration-[var(--transition-base)] ${className}
       `}
     >
       <div className="flex items-start justify-between mb-4">
