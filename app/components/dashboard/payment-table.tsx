@@ -19,7 +19,7 @@ export function PaymentTable({ payments }: PaymentTableProps) {
   };
 
   return (
-    <div className="w-full overflow-x-auto rounded-xl border border-border bg-white shadow-sm">
+    <div className="w-full overflow-x-auto rounded-xl border border-border bg-white">
       <table className="w-full text-left text-sm whitespace-nowrap">
         <thead className="bg-neutral-50/50 border-b border-border text-neutral-500 font-medium">
           <tr>
@@ -57,10 +57,10 @@ export function PaymentTable({ payments }: PaymentTableProps) {
                       payment.status === "completed"
                         ? "success"
                         : payment.status === "pending"
-                        ? "warning"
-                        : payment.status === "refunded"
-                        ? "default"
-                        : "danger"
+                          ? "warning"
+                          : payment.status === "refunded"
+                            ? "default"
+                            : "danger"
                     }
                   >
                     {payment.status.charAt(0).toUpperCase() + payment.status.slice(1)}

@@ -60,7 +60,7 @@ export default function ProfileSettingsPage() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 bg-white rounded-[var(--radius-xl)] border border-border p-6 md:p-8 shadow-sm">
+        <div className="flex-1 bg-white rounded-[var(--radius-xl)] border border-border p-6 md:p-8">
 
           {activeTab === "personal" && (
             <div className="space-y-6 animate-fade-in">
@@ -69,7 +69,7 @@ export default function ProfileSettingsPage() {
               <div className="flex items-center gap-6 mb-8">
                 <div className="relative">
                   <Avatar name={currentUser.name} size="xl" className="w-24 h-24 text-2xl" />
-                  <button className="absolute bottom-0 right-0 w-8 h-8 bg-white border border-border rounded-full flex items-center justify-center text-neutral-600 hover:text-primary hover:border-primary transition-colors shadow-sm">
+                  <button className="absolute bottom-0 right-0 w-8 h-8 bg-white border border-border rounded-full flex items-center justify-center text-neutral-600 hover:text-primary hover:border-primary transition-colors">
                     <Camera className="w-4 h-4" />
                   </button>
                 </div>

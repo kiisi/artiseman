@@ -13,9 +13,9 @@ export default function ReviewsPage() {
 
       <div className="space-y-6">
         {reviews.map(review => (
-          <div key={review.id} className="bg-white rounded-[var(--radius-xl)] border border-border p-6 shadow-sm">
+          <div key={review.id} className="bg-white rounded-[var(--radius-xl)] border border-border p-6">
             <div className="flex flex-col sm:flex-row gap-6">
-              
+
               <div className="sm:w-1/4 shrink-0 border-b sm:border-b-0 sm:border-r border-border pb-4 sm:pb-0 sm:pr-6">
                 <div className="flex items-center gap-3 mb-2">
                   <Avatar name={review.artisan.name} size="sm" />
@@ -39,9 +39,9 @@ export default function ReviewsPage() {
                   </div>
                   <span className="text-xs text-neutral-400">{review.date}</span>
                 </div>
-                
+
                 <p className="text-sm text-neutral-700 leading-relaxed mb-4">"{review.comment}"</p>
-                
+
                 {review.response && (
                   <div className="bg-neutral-50 rounded-lg p-4 border border-border mt-4 flex items-start gap-3">
                     <MessageSquare className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5" />
